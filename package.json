@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/index.ts"
+    "start": "ts-node ./src/index.ts",
+    "diff": "ts-node ./src/diff.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@polkadot/api": "^5.6.1"
+    "@polkadot/api": "^5.6.1",
+    "@types/lodash": "^4.14.172",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "ts-node": "^10.2.1",

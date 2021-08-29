@@ -86,7 +86,10 @@ export type Metadata = {
   >;
 };
 
-export type Update<T> = { from: T; to: T };
+export type Update<T> = {
+  from: T | null | undefined;
+  to: T | null | undefined;
+};
 
 export type InsertOrDel<T> = {
   type: InsertOrDelType;
@@ -94,8 +97,8 @@ export type InsertOrDel<T> = {
 };
 
 export enum InsertOrDelType {
-  INSERT,
-  DEL,
+  INSERT = 'Insert',
+  DEL = 'Del',
 }
 
 export type StorageItemUpdate = {
@@ -111,7 +114,7 @@ export type StorageItemDiff = {
 };
 
 export type StorageDiff = {
-  insertOrDel?: InsertOrDel<Storage>;
+  insertOrDel?: InsertOrDel<Storage | null>;
   prefix?: Update<string | undefined>;
   update?: StorageItemDiff[];
 };
