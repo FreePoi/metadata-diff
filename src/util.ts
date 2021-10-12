@@ -77,14 +77,15 @@ export function reduceDiff<T extends { name: string }, F>(
 
   const results: F[] = [];
 
-  // deletedItems.forEach(item =>
-  //   results.push((phase.delDiff || defaultDelDiff)(item)),
-  // );
-  // addedItems.forEach(item =>
-  //   results.push((phase.addDiff || defaultAddDiff)(item)),
-  // );
+  deletedItems.forEach(item =>
+    results.push((phase.delDiff || defaultDelDiff)(item)),
+  );
+  addedItems.forEach(item =>
+    results.push((phase.addDiff || defaultAddDiff)(item)),
+  );
   updatedItems.forEach(item => {
     const updaton = phase.updateDiff(preItemsMap[item.name], item);
+
     updaton && results.push(updaton);
   });
 

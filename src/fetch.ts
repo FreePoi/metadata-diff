@@ -1,9 +1,10 @@
-import blockHeights from './block-heights.json';
 import { ApiRx, WsProvider } from '@polkadot/api';
 import { mergeMap, tap, zip, catchError, of } from 'rxjs';
 import fs from 'fs';
+import blockHeights from './block-heights.json';
 
-const domain = 'wss://polkadot.api.onfinality.io/public-ws';
+const domain = 'wss://rpc.polkadot.io';
+
 const wsProvider = new WsProvider(domain);
 const apiRx = new ApiRx({
   provider: wsProvider,
